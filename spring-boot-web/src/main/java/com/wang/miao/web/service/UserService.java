@@ -1,13 +1,13 @@
 package com.wang.miao.web.service;
 
-import com.wang.miao.data.domain.User;
-import com.wang.miao.data.repo.UserRepo;
+import com.wang.miao.data.domain.SysUser;
+import com.wang.miao.data.repo.SysUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * 描述:
- *    User Service
+ *    SysUser Service
  * @author zhangzl
  * @create 2018-12-20 9:29 AM
  */
@@ -15,16 +15,16 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private UserRepo userRepo;
+    private SysUserRepo sysUserRepo;
 
     /**
      * 保存user
      */
     public void saveUser() {
-        User user = new User();
-        user.setName("zhangsan");
-        user.setPassword("123456");
-        userRepo.save(user);
+        SysUser sysUser = new SysUser();
+        sysUser.setName("zhangsan");
+        sysUser.setPassword("123456");
+        sysUserRepo.save(sysUser);
     }
 
 }

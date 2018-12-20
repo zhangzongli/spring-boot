@@ -41,4 +41,8 @@ dependencies {
     // thmyleaf
     compile group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.11.RELEASE'
 
+    // shiro
+    compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
+    compile('com.github.theborakompanioni:thymeleaf-extras-shiro:1.2.1')
+
 }

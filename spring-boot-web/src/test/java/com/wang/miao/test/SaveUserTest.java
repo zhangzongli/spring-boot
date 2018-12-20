@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * 描述:
- *    Save User Test
+ *    Save SysUser Test
  * @author zhangzl
  * @create 2018-12-20 10:09 AM
  */
