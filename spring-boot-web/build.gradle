@@ -1,0 +1,44 @@
+apply from: JAVA_GRADLE
+
+buildscript {
+    repositories {
+        maven {
+            url "${maven_url}"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    maven {
+        url "${maven_url}"
+    }
+}
+
+dependencies {
+
+    // 本地依赖
+    compile project(":spring-boot-data")
+
+    // spring boot web start
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-parent:1.5.4.RELEASE')
+
+    // cross-domain
+//    compile("com.tsingyun.boot:cors-spring-boot-starter:${tsingyunBootVersion}")
+
+    compile('com.alibaba:druid:1.0.27')
+    runtime('mysql:mysql-connector-java')
+
+    // themyleaf
+    compile group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.11.RELEASE'
+
+
+
+
+}

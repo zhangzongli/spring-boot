@@ -1,0 +1,62 @@
+buildscript {
+    ext {
+        IDE_GRADLE = "$rootDir/gradle/ide.gradle"
+        JAVA_GRADLE = "$rootDir/gradle/java.gradle"
+        COMMON_GRADLE = "$rootDir/gradle/common.gradle"
+
+        springBootVersion = '1.5.4.RELEASE'
+        springShiroVersion = '1.4.0-RC2'
+    }
+    repositories {
+        maven {
+            url "${maven_url}"
+        }
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.0"
+    }
+}
+
+allprojects {
+    apply plugin: "com.jfrog.artifactory"
+    apply from: IDE_GRADLE
+
+    group = 'com.wang.miao'
+    version = currentVersion
+
+    repositories {
+        maven {
+            url "${maven_url}"
+        }
+    }
+}
+
+artifactoryPublish.skip = true
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"
+    publish {
+        repository {
+            repoKey = currentVersion.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
+            maven = true
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+        }
+        defaults {
+            publishArtifacts = true
+//            publications('mavenJava')
+            publishPom = true
+            publishIvy = false
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'libs-release'
+            maven = true
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0'
+}

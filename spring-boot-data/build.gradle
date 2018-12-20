@@ -1,0 +1,27 @@
+apply from: JAVA_GRADLE
+
+buildscript {
+    repositories {
+        maven {
+            url "${maven_url}"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    maven {
+        url "${maven_url}"
+    }
+}
+
+dependencies {
+
+    // spring data jpa
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.1.RELEASE'
+
+}
