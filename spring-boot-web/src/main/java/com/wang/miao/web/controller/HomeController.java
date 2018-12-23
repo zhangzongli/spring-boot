@@ -5,10 +5,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 描述:
@@ -38,5 +35,11 @@ public class HomeController {
             return "/login";
         }
         return "/index";
+    }
+
+    @GetMapping("/index/add")
+    @ResponseBody
+    public String add() {
+        return "add";
     }
 }

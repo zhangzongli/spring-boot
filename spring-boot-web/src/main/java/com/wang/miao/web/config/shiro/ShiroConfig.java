@@ -35,6 +35,8 @@ public class ShiroConfig {
         // MD5加密一次
         hashedCredentialsMatcher.setHashAlgorithmName("md5");
         hashedCredentialsMatcher.setHashIterations(1);
+        //true就使用realm所加密的hex 否则就使用base64 hex
+        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
 
