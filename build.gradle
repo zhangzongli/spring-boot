@@ -29,33 +29,39 @@ allprojects {
             url "${maven_url}"
         }
     }
+
+//    configurations {
+//        //排除对默认logging的依赖
+//        compile.exclude module: 'spring-boot-starter-logging'
+//        compile.exclude module: 'logback-classic'
+//    }
 }
 
 artifactoryPublish.skip = true
-
-artifactory {
-    contextUrl = "${artifactory_contextUrl}"
-    publish {
-        repository {
-            repoKey = currentVersion.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
-            maven = true
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-        }
-        defaults {
-            publishArtifacts = true
-//            publications('mavenJava')
-            publishPom = true
-            publishIvy = false
-        }
-    }
-    resolve {
-        repository {
-            repoKey = 'libs-release'
-            maven = true
-        }
-    }
-}
+//
+//artifactory {
+//    contextUrl = "${artifactory_contextUrl}"
+//    publish {
+//        repository {
+//            repoKey = currentVersion.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
+//            maven = true
+//            username = "${artifactory_user}"
+//            password = "${artifactory_password}"
+//        }
+//        defaults {
+//            publishArtifacts = true
+////            publications('mavenJava')
+//            publishPom = true
+//            publishIvy = false
+//        }
+//    }
+//    resolve {
+//        repository {
+//            repoKey = 'libs-release'
+//            maven = true
+//        }
+//    }
+//}
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.0'

@@ -26,11 +26,9 @@ dependencies {
 
     // spring boot web start
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-parent:1.5.4.RELEASE')
 
     // spring boot  thymeleaf
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-
     // shiro
     compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
 
@@ -49,6 +47,6 @@ dependencies {
     runtime('mysql:mysql-connector-java')
 
     // aop 注解
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+    compile ("org.springframework.boot:spring-boot-starter-aop")
 
 }
