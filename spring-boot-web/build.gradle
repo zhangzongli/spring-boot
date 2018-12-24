@@ -44,9 +44,11 @@ dependencies {
     // cross-domain
 //    compile("com.tsingyun.boot:cors-spring-boot-starter:${tsingyunBootVersion}")
 
+    // mysql
     compile('com.alibaba:druid:1.0.27')
     runtime('mysql:mysql-connector-java')
 
-
+    // aop 注解
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
 
 }

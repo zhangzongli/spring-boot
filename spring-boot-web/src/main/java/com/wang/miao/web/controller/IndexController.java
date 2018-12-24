@@ -1,5 +1,6 @@
 package com.wang.miao.web.controller;
 
+import com.wang.miao.web.aop.LogAnnotation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +18,7 @@ public class IndexController {
 
 
     @GetMapping("/random-recipe")
+    @LogAnnotation
     public String randomRecipe() {
         return "lalala";
     }

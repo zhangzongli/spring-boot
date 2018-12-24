@@ -1,6 +1,6 @@
 function randomRecipe() {
     $.ajax({
-        url: "/random-recipe",
+        url: "/api/random-recipe",
         type: "get",
         async: false,
         success: function (data) {
