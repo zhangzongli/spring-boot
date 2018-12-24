@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.*;
  * @create 2018-12-20 5:00 PM
  */
 @Controller
-@RequestMapping("/api")
 public class HomeController {
 
-//    @GetMapping(value = {"/", "/login"})
-//    public String getLoginView() {
-//        return "/login";
-//    }
+    @GetMapping(value = {"/", "/login"})
+    public String getLoginView() {
+        return "/login";
+    }
 
 
-    @GetMapping("/login")
-    public String login(String userName, String passWord) {
+    @PostMapping("/login")
+    public String login(String username, String password) {
+
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(userName, passWord);
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 
         try {
             subject.login(token);
@@ -37,9 +37,9 @@ public class HomeController {
         return "/index";
     }
 
-    @GetMapping("/index/add")
-    @ResponseBody
-    public String add() {
-        return "add";
+    @GetMapping("/index")
+    public String index() {
+        return "/index";
     }
+
 }
