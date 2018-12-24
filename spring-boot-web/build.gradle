@@ -31,6 +31,12 @@ dependencies {
     // spring boot  thymeleaf
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 
+    // shiro
+    compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
+
+    //shiro thymeleaf
+    compile('com.github.theborakompanioni:thymeleaf-extras-shiro:1.2.1')
+
     // Test
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -41,8 +47,6 @@ dependencies {
     compile('com.alibaba:druid:1.0.27')
     runtime('mysql:mysql-connector-java')
 
-    // shiro
-    compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
-    compile('com.github.theborakompanioni:thymeleaf-extras-shiro:1.2.1')
+
 
 }

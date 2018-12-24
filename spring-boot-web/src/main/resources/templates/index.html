@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 
 <head>
     <meta charset="utf-8"></meta>
@@ -31,7 +33,7 @@
                 <hr class="mb-4"></hr>
             </div>
         </div>
-        <div class="row">
+        <div class="row" shiro:hasPermission="index:noWait1">
             <div class="col-md-2">
                 <a class="btn btn-primary" href="#" onclick="randomRecipe();">有点迫不及待了呢~</a>
             </div>

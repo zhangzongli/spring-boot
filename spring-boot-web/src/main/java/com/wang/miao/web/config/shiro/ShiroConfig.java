@@ -1,5 +1,6 @@
 package com.wang.miao.web.config.shiro;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.wang.miao.data.domain.SysPermission;
 import com.wang.miao.data.repo.SysPermissionRepo;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -98,4 +99,12 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
+    /**
+     * 在thymeleaf中使用shiro标签
+     * @return
+     */
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
+    }
 }

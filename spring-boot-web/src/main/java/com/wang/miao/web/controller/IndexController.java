@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class IndexController {
 
+
+    @GetMapping("/random-recipe")
+    public String randomRecipe() {
+        return "lalala";
+    }
+
     @GetMapping("/index/add")
     public String add() {
         return "add";
