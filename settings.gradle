@@ -1,5 +1,4 @@
 rootProject.name = 'SpringBoot'
 include 'spring-boot-web'
 include 'spring-boot-data'
-include 'spring-boot-shiro'
 

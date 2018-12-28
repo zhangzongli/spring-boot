@@ -26,6 +26,8 @@ public class SysUser {
 
     private Integer state;
 
+    private CompanyEntity company;
+
     @Id
     @GeneratedValue(generator = "SnowFlake")
     @GenericGenerator(name = "SnowFlake", strategy = "com.wang.miao.data.SnowFlake")
@@ -75,6 +77,16 @@ public class SysUser {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    @ManyToOne()
+    @JoinColumn(name = "company_id", foreignKey = @ForeignKey(name = "none"))
+    public CompanyEntity getCompany() {
+        return company;
+    }
+
+    public void setCompany(CompanyEntity company) {
+        this.company = company;
     }
 
     /**

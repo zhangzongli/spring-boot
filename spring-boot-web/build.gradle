@@ -49,4 +49,7 @@ dependencies {
     // aop 注解
     compile ("org.springframework.boot:spring-boot-starter-aop")
 
+    // Jackson
+    compile ("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
+
 }
