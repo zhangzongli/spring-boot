@@ -13,17 +13,15 @@ import java.util.List;
  * @author zhangzl
  * @create 2018-12-27 5:23 PM
  */
-public class CompanyChildVo extends CompanyEntity {
+public class CompanyChildVo {
 
     private List<SysUser> sysUsers;
 
-    @Override
     @JsonIgnore
     public List<SysUser> getSysUsers() {
         return sysUsers;
     }
 
-    @Override
     public void setSysUsers(List<SysUser> sysUsers) {
         this.sysUsers = sysUsers;
     }

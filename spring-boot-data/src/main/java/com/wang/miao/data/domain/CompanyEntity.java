@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,14 +16,21 @@ import java.util.List;
  */
 @Entity
 @Table(name = "company")
-public class CompanyEntity extends BaseEntity implements Serializable {
+public class CompanyEntity extends BaseEntity{
 
-    private final static Long serialVersionUID = 1L;
+    private static final long serialVersionUID = -7185317673610826231L;
 
     private String name;
 
     private List<SysUser> sysUsers;
 
+    private Date time;
+
+    public CompanyEntity(String name) {
+        this.name = name;
+    }
+
+    @Column(nullable = false, length = 5)
     public String getName() {
         return name;
     }
@@ -39,5 +47,14 @@ public class CompanyEntity extends BaseEntity implements Serializable {
 
     public void setSysUsers(List<SysUser> sysUsers) {
         this.sysUsers = sysUsers;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

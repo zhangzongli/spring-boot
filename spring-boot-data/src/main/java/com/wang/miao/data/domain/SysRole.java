@@ -4,6 +4,7 @@ import com.sun.javafx.beans.IDProperty;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 描述:
@@ -13,7 +14,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "role"))
-public class SysRole {
+public class SysRole implements Serializable {
+
+    private final static Long serialVersionUID = 1L;
 
     /**
      * id

@@ -2,10 +2,8 @@ package com.wang.miao.data.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -15,13 +13,18 @@ import java.util.Date;
  * @create 2018-12-28 16:49
  */
 @MappedSuperclass
-public class BaseEntity {
+public class BaseEntity implements Serializable {
+
+    private static final long serialVersionUID = 1103005637461574778L;
 
     private Long id;
 
     private Date creatTime;
 
     private Date updateTime;
+
+    @Version
+    private Long version;
 
     @Id
     @GeneratedValue(generator = "SnowFlake")
@@ -48,5 +51,13 @@ public class BaseEntity {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }
