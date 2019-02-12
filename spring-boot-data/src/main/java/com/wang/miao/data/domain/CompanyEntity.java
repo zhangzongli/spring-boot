@@ -1,10 +1,6 @@
 package com.wang.miao.data.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -26,11 +22,15 @@ public class CompanyEntity extends BaseEntity{
 
     private Date time;
 
+
+    public CompanyEntity(){
+
+    }
+
     public CompanyEntity(String name) {
         this.name = name;
     }
 
-    @Column(nullable = false, length = 5)
     public String getName() {
         return name;
     }

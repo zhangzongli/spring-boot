@@ -1,0 +1,32 @@
+apply from: JAVA_GRADLE
+
+buildscript {
+    repositories {
+        maven {
+            url "${maven_url}"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    maven {
+        url "${maven_url}"
+    }
+}
+
+dependencies {
+
+    //本地依赖
+    compile project(":spring-boot-data")
+//    compile project(":spring-boot-web")
+
+    // shiro
+    compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
+    compile('com.github.theborakompanioni:thymeleaf-extras-shiro:1.2.1')
+
+}

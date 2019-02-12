@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping(value = {"/", "/login"})
     public String getLoginView() {
-        return "/login";
+        return "login";
     }
 
 
@@ -32,14 +32,14 @@ public class HomeController {
             subject.login(token);
         } catch (AuthenticationException e) {
             e.printStackTrace();
-            return "/login";
+            return "login";
         }
-        return "/index";
+        return "index";
     }
 
     @GetMapping("/index")
     public String index() {
-        return "/index";
+        return "index";
     }
 
 }

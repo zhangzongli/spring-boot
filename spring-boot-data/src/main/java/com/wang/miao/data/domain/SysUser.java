@@ -79,7 +79,7 @@ public class SysUser {
         this.salt = salt;
     }
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id", foreignKey = @ForeignKey(name = "none"))
     public CompanyEntity getCompany() {
         return company;

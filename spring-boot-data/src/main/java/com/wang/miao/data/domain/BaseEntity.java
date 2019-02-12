@@ -19,12 +19,14 @@ public class BaseEntity implements Serializable {
 
     private Long id;
 
+    @Version
+    private Long version;
+
     private Date creatTime;
 
     private Date updateTime;
 
-    @Version
-    private Long version;
+    private Byte delete;
 
     @Id
     @GeneratedValue(generator = "SnowFlake")
@@ -35,6 +37,14 @@ public class BaseEntity implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public Date getCreatTime() {
@@ -53,11 +63,12 @@ public class BaseEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Long getVersion() {
-        return version;
+    @Column(name = "is_delete")
+    public Byte getDelete() {
+        return delete;
     }
 
-    public void setVersion(Long version) {
-        this.version = version;
+    public void setDelete(Byte delete) {
+        this.delete = delete;
     }
 }

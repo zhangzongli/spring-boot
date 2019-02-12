@@ -1,6 +1,5 @@
-package com.wang.miao.web.config.shiro;
+package com.wang.miao.shiro;
 
-import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.wang.miao.data.domain.SysPermission;
 import com.wang.miao.data.repo.SysPermissionRepo;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -36,8 +35,6 @@ public class ShiroConfig {
         // MD5加密一次
         hashedCredentialsMatcher.setHashAlgorithmName("md5");
         hashedCredentialsMatcher.setHashIterations(1);
-        //true就使用realm所加密的hex 否则就使用base64 hex
-        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
 
@@ -99,12 +96,4 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
-    /**
-     * 在thymeleaf中使用shiro标签
-     * @return
-     */
-    @Bean
-    public ShiroDialect shiroDialect() {
-        return new ShiroDialect();
-    }
 }
