@@ -39,7 +39,7 @@ public class CompanyEntity extends BaseEntity{
         this.name = name;
     }
 
-    @OneToMany(targetEntity = SysUser.class, fetch = FetchType.LAZY, mappedBy = "company")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "company")
     @org.hibernate.annotations.ForeignKey(name = "none")
     public List<SysUser> getSysUsers() {
         return sysUsers;

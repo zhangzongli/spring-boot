@@ -12,9 +12,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "name"))
-public class SysUser {
-
-    private Long id;
+public class SysUser extends BaseEntity {
 
     private String name;
 
@@ -27,17 +25,6 @@ public class SysUser {
     private Integer state;
 
     private CompanyEntity company;
-
-    @Id
-    @GeneratedValue(generator = "SnowFlake")
-    @GenericGenerator(name = "SnowFlake", strategy = "com.wang.miao.data.SnowFlake")
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
