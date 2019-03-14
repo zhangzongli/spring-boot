@@ -1,6 +1,8 @@
 package com.wang.miao.web.controller;
 
 import com.wang.miao.web.aop.LogAnnotation;
+import com.wang.miao.web.service.RecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class IndexController {
 
+    @Autowired
+    private RecipeService recipeService;
 
     @GetMapping("/random-recipe")
     @LogAnnotation
     public String randomRecipe() {
-        return "lalala";
+        return recipeService.getRandomRecipeName();
     }
 
     @GetMapping("/index/add")

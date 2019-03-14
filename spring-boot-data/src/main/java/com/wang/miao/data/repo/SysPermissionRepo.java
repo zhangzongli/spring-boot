@@ -13,7 +13,6 @@ import java.util.List;
  */
 public interface SysPermissionRepo extends JpaRepository<SysPermission, Long> {
 
-
     /**
      * 根据角色id获取权限信息
      * @param roleId

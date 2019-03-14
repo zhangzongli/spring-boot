@@ -16,7 +16,7 @@ import javax.persistence.Entity;
  * @create 2018-12-20 8:46 AM
  */
 @SpringBootApplication
-@EntityScan("com.wang.miao")
+@EntityScan("com.wang.miao.data.domain")
 @EnableJpaRepositories(basePackages = {"com.wang.miao"})
 @EnableTransactionManagement
 public class Application {
