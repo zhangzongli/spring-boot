@@ -37,7 +37,8 @@ public class IndexControllerTest {
 
     @Before
     public void setupMockMvc(){
-        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build(); //初始化MockMvc对象
+        //初始化MockMvc对象
+        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
     /**

@@ -52,4 +52,8 @@ dependencies {
     // Jackson
     compile ("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
 
+    // rabbitmq
+    compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '2.1.4.RELEASE'
+
+
 }
