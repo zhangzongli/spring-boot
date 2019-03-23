@@ -63,6 +63,12 @@ spring:
       suffix: .html
     date-format: yyyy-MM-dd HH:mm:ss
 #    static-path-pattern: /static/**
+  application: spring-boot-rabbitmq
+  rabbitmq:
+    host: 129.204.89.15
+    port: 5672
+    username: admin
+    password: 123456
 
 logging:
   level:
@@ -73,5 +79,6 @@ logging:
 
 server:
   port: 8080
+  context-path: /miao
 
 

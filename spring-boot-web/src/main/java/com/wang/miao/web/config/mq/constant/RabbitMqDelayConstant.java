@@ -7,7 +7,7 @@ package com.wang.miao.web.config.mq.constant;
  * @author zhangzongli
  * @create 2019-03-21 16:48
  */
-public class HomePageProductMqConstant {
+public class RabbitMqDelayConstant {
 
     /**
      * 上首页标识
