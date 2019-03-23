@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan("com.wang.miao")
 @EnableJpaRepositories(basePackages = {"com.wang.miao"})
 @EnableTransactionManagement
-@EnableRabbit
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
