@@ -23,10 +23,10 @@ public class DelayListener {
 //     * @param messageMap
      * @param message
      */
-//    @RabbitListener(bindings = @QueueBinding(
-//        value = @Queue(value = DelayConfig.DELAY_QUEUE, durable = "true"),
-//        exchange = @Exchange(value = DelayConfig.DELAY_EXCHANGE),
-//        key = DelayConfig.DELAY_ROUTING_KEY))
+    @RabbitListener(bindings = @QueueBinding(
+        value = @Queue(value = DelayConfig.DELAY_QUEUE, durable = "true"),
+        exchange = @Exchange(value = DelayConfig.DELAY_EXCHANGE),
+        key = DelayConfig.DELAY_ROUTING_KEY))
     @RabbitHandler
     public void receiveMessage(String msg, Message message) {
         try {

@@ -1,6 +1,7 @@
 package com.wang.miao.web.controller;
 
 import com.wang.miao.web.config.mq.config.DelayConfig;
+import com.wang.miao.web.config.mq.sender.DelaySender;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,12 @@ import java.util.Date;
 public class RabbitMqController {
 
     @Autowired
-    private AmqpTemplate amqpTemplate;
+    private DelaySender delaySender;
 
     @GetMapping("/send-delay")
     public void sendDelay() {
         String context = "hello " + new Date();
         System.out.println("Sender : " + context);
-        this.amqpTemplate.convertAndSend(DelayConfig.DELAY_EXCHANGE, DelayConfig.DELAY_ROUTING_KEY, context);
+        delaySender.sendDelay(context, 20000L);
     }
 }

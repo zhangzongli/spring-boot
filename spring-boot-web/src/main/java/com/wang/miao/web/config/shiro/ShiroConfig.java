@@ -91,7 +91,7 @@ public class ShiroConfig {
         List<SysPermission> sysPermissions = sysPermissionRepo.getAllPermission();
 
         for (SysPermission sysPermission : sysPermissions) {
-            filterChainDefinitionMap.put(sysPermission.getUrl(), "anon".equals(sysPermission.getPermission()) ? "anon" : "perms[" + sysPermission.getPermission() + "]");
+            filterChainDefinitionMap.put("/miao" + sysPermission.getUrl(), "anon".equals(sysPermission.getPermission()) ? "anon" : "perms[" + sysPermission.getPermission() + "]");
         }
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
