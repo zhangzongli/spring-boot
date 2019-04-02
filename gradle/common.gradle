@@ -1,7 +1,7 @@
 apply from: JAVA_GRADLE
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-parent')
+    compile("org.springframework.boot:spring-boot-starter-parent:${springBootVersion}")
     compile('com.fasterxml.jackson.core:jackson-annotations:2.9.8')
     compile('io.swagger:swagger-annotations:1.5.10')
 }

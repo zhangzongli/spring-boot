@@ -1,16 +1,5 @@
 apply from: JAVA_GRADLE
 
-buildscript {
-    repositories {
-        maven {
-            url "${maven_url}"
-        }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
 apply plugin: 'org.springframework.boot'
 
 repositories {
@@ -22,7 +11,7 @@ repositories {
 dependencies {
 
     // spring data jpa
-    compile ("org.springframework.boot:spring-boot-starter-data-jpa:2.1.1.RELEASE")
+    compile ("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
 
     // Jackson
     compile ("com.fasterxml.jackson.core:jackson-annotations:2.9.8")

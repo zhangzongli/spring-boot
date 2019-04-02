@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class FilterConfig {
 
     @Bean
+    @SuppressWarnings("unchecked")
     public FilterRegistrationBean registrationBean() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(new LogFilter());

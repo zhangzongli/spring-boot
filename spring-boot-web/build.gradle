@@ -1,16 +1,5 @@
 apply from: JAVA_GRADLE
 
-buildscript {
-    repositories {
-        maven {
-            url "${maven_url}"
-        }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
 apply plugin: 'org.springframework.boot'
 
 repositories {
@@ -25,18 +14,19 @@ dependencies {
     compile project(":spring-boot-data")
 
     // spring boot web start
-    compile('org.springframework.boot:spring-boot-starter-web')
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
 
     // spring boot  thymeleaf
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+
     // shiro
     compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
 
     //shiro thymeleaf
-    compile('com.github.theborakompanioni:thymeleaf-extras-shiro:1.2.1')
+    compile('com.github.theborakompanioni:thymeleaf-extras-shiro:2.0.0')
 
     // Test
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     // cross-domain
@@ -44,7 +34,7 @@ dependencies {
 
     // mysql
     compile('com.alibaba:druid:1.0.27')
-    runtime('mysql:mysql-connector-java')
+    runtime('mysql:mysql-connector-java:8.0.15')
 
     // aop 注解
     compile ("org.springframework.boot:spring-boot-starter-aop")
@@ -54,14 +44,10 @@ dependencies {
 
     // rabbitmq
     compile ("org.springframework.boot:spring-boot-starter-amqp:2.1.3.RELEASE")
-//    compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '2.1.4.RELEASE'
 
     // lombok
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.6'
 
-//    compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.4.RELEASE'
-//
-//    compile group: 'org.springframework', name: 'spring-messaging', version: '5.1.5.RELEASE'
 
 
 }

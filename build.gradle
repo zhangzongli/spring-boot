@@ -4,7 +4,8 @@ buildscript {
         JAVA_GRADLE = "$rootDir/gradle/java.gradle"
         COMMON_GRADLE = "$rootDir/gradle/common.gradle"
 
-        springBootVersion = '1.5.4.RELEASE'
+        springBootVersion = '2.1.3.RELEASE'
+        springBootGradlePlugin = '2.1.3.RELEASE'
         springShiroVersion = '1.4.0-RC2'
     }
     repositories {
@@ -14,6 +15,7 @@ buildscript {
     }
     dependencies {
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.0"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootGradlePlugin}")
     }
 }
 
