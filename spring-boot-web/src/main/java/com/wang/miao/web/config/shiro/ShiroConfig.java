@@ -7,8 +7,10 @@ import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.DelegatingFilterProxy;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -63,15 +65,15 @@ public class ShiroConfig {
         return defaultWebSecurityManager;
     }
 
-//    @Bean
-//    public FilterRegistrationBean delegatingFilterProxy(){
-//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-//        DelegatingFilterProxy proxy = new DelegatingFilterProxy();
-//        proxy.setTargetFilterLifecycle(true);
-//        proxy.setTargetBeanName("shiroFilter");
-//        filterRegistrationBean.setFilter(proxy);
-//        return filterRegistrationBean;
-//    }
+    @Bean
+    public FilterRegistrationBean delegatingFilterProxy(){
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        DelegatingFilterProxy proxy = new DelegatingFilterProxy();
+        proxy.setTargetFilterLifecycle(true);
+        proxy.setTargetBeanName("shiroFilter");
+        filterRegistrationBean.setFilter(proxy);
+        return filterRegistrationBean;
+    }
 
     /**
      * 过滤器
@@ -91,7 +93,7 @@ public class ShiroConfig {
         List<SysPermission> sysPermissions = sysPermissionRepo.getAllPermission();
 
         for (SysPermission sysPermission : sysPermissions) {
-            filterChainDefinitionMap.put("/miao" + sysPermission.getUrl(), "anon".equals(sysPermission.getPermission()) ? "anon" : "perms[" + sysPermission.getPermission() + "]");
+            filterChainDefinitionMap.put(sysPermission.getUrl(), "anon".equals(sysPermission.getPermission()) ? "anon" : "perms[" + sysPermission.getPermission() + "]");
         }
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);

@@ -1,4 +1,4 @@
-package com.wang.miao.web.filter;
+package com.wang.miao.web.filter.logFilter;
 
 import javax.servlet.*;
 import java.io.IOException;

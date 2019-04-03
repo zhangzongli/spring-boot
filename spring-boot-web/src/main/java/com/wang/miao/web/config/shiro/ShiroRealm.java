@@ -13,6 +13,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.List;
 
@@ -33,6 +34,14 @@ public class ShiroRealm extends AuthorizingRealm {
     @Autowired
     private SysPermissionRepo sysPermissionRepo;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    /**
+     * 授权
+     * @param principals
+     * @return
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         /*
@@ -59,6 +68,12 @@ public class ShiroRealm extends AuthorizingRealm {
         return simpleAuthorizationInfo;
     }
 
+    /**
+     * 验证
+     * @param token
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 

@@ -1,7 +1,6 @@
 package com.wang.miao.test;
 
 import com.wang.miao.web.Application;
-import com.wang.miao.web.controller.IndexController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

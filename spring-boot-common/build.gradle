@@ -1,14 +1,11 @@
-plugins {
-    id 'java'
-}
+apply from: JAVA_GRADLE
 
-group 'com.wang.miao'
-version '1.0.0-RC1'
-
-sourceCompatibility = 1.8
+apply plugin: 'org.springframework.boot'
 
 repositories {
-    mavenCentral()
+    maven {
+        url "${maven_url}"
+    }
 }
 
 dependencies {

@@ -56,7 +56,8 @@ spring:
     mode: HTML5
     cache: false
     encoding: UTF-8
-    content-type: text/html
+    servlet:
+      content-type: text/html
   mvc:
     view:
       prefix: classpath:/templates/
@@ -69,6 +70,9 @@ spring:
     port: 5672
     username: admin
     password: 123456
+  redis:
+    host: 129.204.89.15
+    port: 6379
 
 logging:
   level:
@@ -79,6 +83,9 @@ logging:
 
 server:
   port: 8080
-  context-path: /miao
+
+# url 全局路径设置
+#  servlet:
+#    context-path: /miao
 
 

@@ -1,6 +1,6 @@
-package com.wang.miao.web.config.filter;
+package com.wang.miao.web.filter.logFilter;
 
-import com.wang.miao.web.filter.LogFilter;
+import com.wang.miao.web.filter.logFilter.LogFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @create 2018-12-24 10:20 PM
  */
 @Configuration
-public class FilterConfig {
+public class LogFilterConfig {
 
     @Bean
     @SuppressWarnings("unchecked")
